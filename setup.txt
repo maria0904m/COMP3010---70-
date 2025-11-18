@@ -1,0 +1,237 @@
+    1  sudo apt update
+    2  studee
+    3  sudo apt update
+    4  sudo apt install -y wireshark tshark p7zip-full unzip ca-certificates openssl
+    5  wireshark
+    6  cd...
+    7  cd ..
+    8  cd Desktop
+    9  unzip -l documents.zip
+   10  wireshark
+   11  cd ..
+   12  cd Downloads
+   13  tshark -r cww1.pcap -Y "http.server" -T fields -e frame.number -e ip.src -e ip.dst -e http.server
+   14  tshark -r cw1.pcap -Y "http.server" -T fields -e frame.number -e ip.src -e ip.dst -e http.server
+   15  tshark -r cw1.pcacp -Y "http.host" -T fields -e http.host | sort -u
+   16  cd ..
+   17  cd downloads
+   18  cd Downloads
+   19  PCAP="cw1.pcap" echo"using pcap: $PCAP"
+   20  PCAP="cw1.pcap" echo "Using pcap: $PCAP"
+   21  tshark -r '$PCAP" -Y "http.host" -T fields -e frame.number -e frame.time -e ip.src -e ip.dst -e http.host | sed -n '1,200p' > http_hosts.txt && echo "Saved tls_sni.txt (first 200 lines):" && -n '1,200' tls_sni.txt
+   22  tshark -r cw1.pcap -Y "tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name | sort -u > snis.txt
+   23  cd .. 
+   24  cd Downloads
+   25  tshark -r cw1.pcap -Y "tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name | sort -u > snis.txt
+   26  tshark -r cw1.pcap -Y "tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name 2>/dev/null | sort -u > snis.txt
+   27  tshark -r cw1.pcap -Y "tls.handshake" -T fields -e frame.number -e tls.handshake.extensions_server_name | head
+   28  tshark -r cw1.pcap -Y "tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name 2>/dev/null | sort -u > snis.txt
+   29  cat snis.txt
+   30  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52" -T fields -e frame.number -e frame.time -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport -e udp.srcport -e udp.dstport -e frame.len -e _ws.col.Protocol -e _ws.col.Info 2>/dev/null | sed -n '1,200p'
+   31  25415	Sep 24, 2021 18:01:02.689327000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=26724 Ack=3487 Win=63886 Len=0
+   32  25418	Sep 24, 2021 18:01:02.781426000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=26724 Ack=3487 Win=63886 Len=20
+   33  25419	Sep 24, 2021 18:01:02.781556000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3487 Ack=26744 Win=64240 Len=0
+   34  25422	Sep 24, 2021 18:01:02.814081000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=26744 Ack=3487 Win=63886 Len=20
+   35  25423	Sep 24, 2021 18:01:02.814148000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3487 Ack=26764 Win=64240 Len=0
+   36  25425	Sep 24, 2021 18:01:03.052646000 BST	10.9.23.102	23.111.114.52	63557	65400			121	TCP	63557 → 65400 [PSH, ACK] Seq=26764 Ack=3487 Win=63886 Len=67
+   37  25426	Sep 24, 2021 18:01:03.052710000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3487 Ack=26831 Win=64240 Len=0
+   38  25428	Sep 24, 2021 18:01:03.071030000 BST	23.111.114.52	10.9.23.102	65400	63557			64	TCP	65400 → 63557 [PSH, ACK] Seq=3487 Ack=26831 Win=64240 Len=10
+   39  25431	Sep 24, 2021 18:01:03.071338000 BST	10.9.23.102	23.111.114.52	63557	65400			121	TCP	63557 → 65400 [PSH, ACK] Seq=26831 Ack=3497 Win=63876 Len=67
+   40  25432	Sep 24, 2021 18:01:03.071403000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3497 Ack=26898 Win=64240 Len=0
+   41  25436	Sep 24, 2021 18:01:03.271728000 BST	23.111.114.52	10.9.23.102	65400	63557			90	TCP	65400 → 63557 [PSH, ACK] Seq=3497 Ack=26898 Win=64240 Len=36
+   42  25439	Sep 24, 2021 18:01:03.272120000 BST	10.9.23.102	23.111.114.52	63557	65400			66	TCP	63557 → 65400 [PSH, ACK] Seq=26898 Ack=3533 Win=63840 Len=12
+   43  25440	Sep 24, 2021 18:01:03.272204000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3533 Ack=26910 Win=64240 Len=0
+   44  25443	Sep 24, 2021 18:01:03.465787000 BST	23.111.114.52	10.9.23.102	65400	63557			80	TCP	65400 → 63557 [PSH, ACK] Seq=3533 Ack=26910 Win=64240 Len=26
+   45  25444	Sep 24, 2021 18:01:03.465999000 BST	10.9.23.102	23.111.114.52	63557	65400			66	TCP	63557 → 65400 [PSH, ACK] Seq=26910 Ack=3559 Win=63814 Len=12
+   46  25445	Sep 24, 2021 18:01:03.466037000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3559 Ack=26922 Win=64240 Len=0
+   47  25447	Sep 24, 2021 18:01:03.788571000 BST	23.111.114.52	10.9.23.102	65400	63557			86	TCP	65400 → 63557 [PSH, ACK] Seq=3559 Ack=26922 Win=64240 Len=32
+   48  25448	Sep 24, 2021 18:01:03.788795000 BST	10.9.23.102	23.111.114.52	63557	65400			66	TCP	63557 → 65400 [PSH, ACK] Seq=26922 Ack=3591 Win=63782 Len=12
+   49  25449	Sep 24, 2021 18:01:03.788862000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3591 Ack=26934 Win=64240 Len=0
+   50  25450	Sep 24, 2021 18:01:03.995143000 BST	23.111.114.52	10.9.23.102	65400	63557			86	TCP	65400 → 63557 [PSH, ACK] Seq=3591 Ack=26934 Win=64240 Len=32
+   51  25451	Sep 24, 2021 18:01:03.995418000 BST	10.9.23.102	23.111.114.52	63557	65400			66	TCP	63557 → 65400 [PSH, ACK] Seq=26934 Ack=3623 Win=63750 Len=12
+   52  25452	Sep 24, 2021 18:01:03.995518000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3623 Ack=26946 Win=64240 Len=0
+   53  25453	Sep 24, 2021 18:01:04.195831000 BST	23.111.114.52	10.9.23.102	65400	63557			87	TCP	65400 → 63557 [PSH, ACK] Seq=3623 Ack=26946 Win=64240 Len=33
+   54  25455	Sep 24, 2021 18:01:04.251133000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=26946 Ack=3656 Win=63717 Len=0
+   55  25458	Sep 24, 2021 18:01:04.397083000 BST	23.111.114.52	10.9.23.102	65400	63557			85	TCP	65400 → 63557 [PSH, ACK] Seq=3656 Ack=26946 Win=64240 Len=31
+   56  25460	Sep 24, 2021 18:01:04.439202000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=26946 Ack=3687 Win=63686 Len=0
+   57  25468	Sep 24, 2021 18:01:04.602338000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=26946 Ack=3687 Win=63686 Len=20
+   58  25469	Sep 24, 2021 18:01:04.602447000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3687 Ack=26966 Win=64240 Len=0
+   59  25473	Sep 24, 2021 18:01:04.720209000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=26966 Ack=3687 Win=63686 Len=20
+   60  25474	Sep 24, 2021 18:01:04.720306000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3687 Ack=26986 Win=64240 Len=0
+   61  25480	Sep 24, 2021 18:01:04.859607000 BST	10.9.23.102	23.111.114.52	63557	65400			140	TCP	63557 → 65400 [PSH, ACK] Seq=26986 Ack=3687 Win=63686 Len=86
+   62  25481	Sep 24, 2021 18:01:04.859683000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3687 Ack=27072 Win=64240 Len=0
+   63  25482	Sep 24, 2021 18:01:04.861286000 BST	23.111.114.52	10.9.23.102	65400	63557			64	TCP	65400 → 63557 [PSH, ACK] Seq=3687 Ack=27072 Win=64240 Len=10
+   64  25485	Sep 24, 2021 18:01:04.922394000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=27072 Ack=3697 Win=63676 Len=0
+   65  25490	Sep 24, 2021 18:01:05.070593000 BST	23.111.114.52	10.9.23.102	65400	63557			64	TCP	65400 → 63557 [PSH, ACK] Seq=3697 Ack=27072 Win=64240 Len=10
+   66  25495	Sep 24, 2021 18:01:05.125478000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=27072 Ack=3707 Win=63666 Len=0
+   67  26742	Sep 24, 2021 18:02:16.638504000 BST	23.111.114.52	10.9.23.102	65400	63557			66	TCP	65400 → 63557 [PSH, ACK] Seq=3707 Ack=27072 Win=64240 Len=12
+   68  26743	Sep 24, 2021 18:02:16.691219000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=27072 Ack=3719 Win=63654 Len=0
+   69  26744	Sep 24, 2021 18:02:16.945774000 BST	23.111.114.52	10.9.23.102	65400	63557			94	TCP	65400 → 63557 [PSH, ACK] Seq=3719 Ack=27072 Win=64240 Len=40
+   70  26745	Sep 24, 2021 18:02:16.946109000 BST	10.9.23.102	23.111.114.52	63557	65400			78	TCP	63557 → 65400 [PSH, ACK] Seq=27072 Ack=3759 Win=63614 Len=24
+   71  26746	Sep 24, 2021 18:02:16.946225000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3759 Ack=27096 Win=64240 Len=0
+   72  26748	Sep 24, 2021 18:02:17.216693000 BST	23.111.114.52	10.9.23.102	65400	63557			118	TCP	65400 → 63557 [PSH, ACK] Seq=3759 Ack=27096 Win=64240 Len=64
+   73  26749	Sep 24, 2021 18:02:17.216933000 BST	10.9.23.102	23.111.114.52	63557	65400			78	TCP	63557 → 65400 [PSH, ACK] Seq=27096 Ack=3823 Win=63550 Len=24
+   74  26750	Sep 24, 2021 18:02:17.217070000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3823 Ack=27120 Win=64240 Len=0
+   75  26755	Sep 24, 2021 18:02:17.476589000 BST	23.111.114.52	10.9.23.102	65400	63557			114	TCP	65400 → 63557 [PSH, ACK] Seq=3823 Ack=27120 Win=64240 Len=60
+   76  26757	Sep 24, 2021 18:02:17.534058000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=27120 Ack=3883 Win=63490 Len=0
+   77  26770	Sep 24, 2021 18:02:17.872739000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=27120 Ack=3883 Win=63490 Len=20
+   78  26771	Sep 24, 2021 18:02:17.872817000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3883 Ack=27140 Win=64240 Len=0
+   79  26772	Sep 24, 2021 18:02:17.872921000 BST	10.9.23.102	23.111.114.52	63557	65400			74	TCP	63557 → 65400 [PSH, ACK] Seq=27140 Ack=3883 Win=63490 Len=20
+   80  26773	Sep 24, 2021 18:02:17.872990000 BST	23.111.114.52	10.9.23.102	65400	63557			54	TCP	65400 → 63557 [ACK] Seq=3883 Ack=27160 Win=64240 Len=0
+   81  26774	Sep 24, 2021 18:02:18.141801000 BST	23.111.114.52	10.9.23.102	65400	63557			329	TCP	65400 → 63557 [PSH, ACK] Seq=3883 Ack=27160 Win=64240 Len=275
+   82  26777	Sep 24, 2021 18:02:18.191176000 BST	10.9.23.102	23.111.114.52	63557	65400			54	TCP	63557 → 65400 [ACK] Seq=27160 Ack=4158 Win=63215 Len=0
+   83  [200~tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443"
+   84  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443"
+   85  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443" 2>/dev/null
+   86  tshark -r cw1.pcap | grep 23.111.114.52
+   87  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443" -V
+   88  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443" -T fields -e frame.number -e frame.time -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport 2>/dev/null
+   89  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52" -T fields -e frame.number -e ip.src -e ip.dst -e tcp.srcport -e tcp.dstport
+   90  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && (tls || ssl)" -T fields -e frame.number -e _ws.col.Protocol -e _ws.col.Info | sed -n '1,200p'
+   91  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==65400" -T fields -e frame.number -e tcp.stream -e ip.src -e ip.dst -e _ws.col.Info | sort -n | uniq | sed -n '1,200p'
+   92  tshark -r cw1.pcap -Y "tcp.stream==N && (tls.handshake.extensions_server_name || ssl.handshake.extensions_server_name)" -T fields -e frame.number -e ip.src -e ip.dst -e tls.handshake.extensions_server_name -e ssl.handshake.extensions_server_name
+   93  tshark -q -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==65400" -T fields -e frame.number -e tcp.stream -e ip.src -e ip.dst -e _ws.col.Info
+   94  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==65400" -T fields -e frame.number -e tcp.stream -e ip.src -e ip.dst -e _ws.col.Info 2>/dev/null | head -n 200
+   95  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==65400" -T fields -e frame.number -e tcp.stream -e ip.src -e ip.dst -e _ws.col.Info 2>/dev/null | head -n 200
+   96  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name
+   97  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name 2>/dev/null
+   98  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tcp.port==443 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name 2>/dev/null
+   99  strings -a "cw1 (1).pcap" | egrep -i "goingfortune|wpad|\.com|\.net|\.org" | sed -n '1,200p'
+  100  sudo apt install binutils
+  101  strings -a "cw1 (1).pcap" | egrep -i "goingfortune|wpad|\.com|\.net|\.org" | sed -n '1,200p'
+  102  strings -a "cw1.pcap" | egrep -i "goingfortune|wpad|\.com|\.net|\.org" | sed -n '1,200p'
+  103  cd ..
+  104  cd dowwnload
+  105  cd downloads
+  106  cd Downloads
+  107  strings -a "cw1.pcap" | egrep -i "goingfortune|wpad|\.com|\.net|\.org" | sed -n '1,200p'
+  108  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && http.request" -T fields -e http.host | sort -u
+  109  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name | sort -u
+  110  [200~tshark -r cw1.pcap -Y "ip.addr==52.97.201.242 && tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name | sort -u
+  111  tls.handshake.extensions_server_name" -T fields -e tls.handshake.extensions_server_name | sort -u
+  112  [200~# create folder for stream output
+  113  mkdir -p ~/pcap/streams
+  114  # dump raw stream 267 to file (tshark must be installed)
+  115  tshark -r "~/Desktop/cw1 (1).pcap" -q -z "follow,tcp,raw,267" > ~/pcap/streams/stream267.raw
+  116  # extract printable strings and find unique .com/.net/.org candidates
+  117  strings ~/pcap/streams/stream267.raw | egrep -io "[A-Za-z0-9._%+-]+\.(com|net|org|io|co|biz|info)" | sort | uniq -c | sort -nr > ~/pcap/streams/stream267_domains.txt
+  118  # show the top 200 lines
+  119  [200~# create folder for stream output
+  120  mkdir -p ~/pcap/streams
+  121  # dump raw stream 267 to file (tshark must be installed)
+  122  tshark -r "~/Desktop/cw1 (1).pcap" -q -z "follow,tcp,raw,267" > ~/pcap/streams/stream267.raw
+  123  # extract printable strings and find unique .com/.net/.org candidates
+  124  strings ~/pcap/streams/stream267.raw | egrep -io "[A-Za-z0-9._%+-]+\.(com|net|org|io|co|biz|info)" | sort | uniq -c | sort -nr > ~/pcap/streams/stream267_domains.txt
+  125  # show the top 200 lines
+  126  # create folder for stream output
+  127  mkdir -p ~/pcap/streams
+  128  # dump raw stream 267 to file (tshark must be installed)
+  129  tshark -r "~/Desktop/cw1 (1).pcap" -q -z "follow,tcp,raw,267" > ~/pcap/streams/stream267.raw
+  130  # extract printable strings and find unique .com/.net/.org candidates
+  131  strings ~/pcap/streams/stream267.raw | egrep -io "[A-Za-z0-9._%+-]+\.(com|net|org|io|co|biz|info)" | sort | uniq -c | sort -nr > ~/pcap/streams/stream267_domains.txt
+  132  # show the top 200 lines
+  133  sed -n '1,200p' ~/pcap/streams/stream267_domains.txt
+  134  cd ..
+  135  cd Downloads
+  136  # create folder for stream output
+  137  mkdir -p ~/pcap/streams
+  138  # dump raw stream 267 to file (tshark must be installed)
+  139  tshark -r "~/Downloads/cw1.pcap" -q -z "follow,tcp,raw,267" > ~/pcap/streams/stream267.raw
+  140  # extract printable strings and find unique .com/.net/.org candidates
+  141  strings ~/pcap/streams/stream267.raw | egrep -io "[A-Za-z0-9._%+-]+\.(com|net|org|io|co|biz|info)" | sort | uniq -c | sort -nr > ~/pcap/streams/stream267_domains.txt
+  142  # show the top 200 lines
+  143  sed -n '1,200p' ~/pcap/streams/stream267_domains.txt
+  144  mkdir -p ~/pcap_output
+  145  tshark -r "cw1.pcap" -q -z "follow,tcp,raw,267" > ~/pcap_output/stream267.raw
+  146  strings ~/pcap_output/stream267.raw | egrep -io "[A-Za-z0-9._%+-]+\.(com|net|org|io|co|biz|info)" | sort | uniq -c | sort -nr | head -n 40
+  147  nslookup ocsp.verisign.com
+  148  mkdir -p ~/analysis/suspect
+  149  unzip documents.zip -d ~analysis/suspect 
+  150  mkdir -p ~/analysis/suspect
+  151  unzip documents.zip -d ~/analysis/suspect
+  152  ls -l ~/analysis/suspect
+  153  wireshark
+  154  [200~tshark -r capture.pcap -Y "ip.addr==136.232.34.70" -w 136.232.34.70.pcap
+  155  ~tshark -r capture.pcap -Y "ip.addr==136.232.34.70" -w 136.232.34.70.pcap
+  156  tshark -r capture.pcap -Y "ip.addr==136.232.34.70" -w 136.232.34.70.pcap
+  157  cd ..
+  158  cd Downloads
+  159  tshark -r cw1.pcap -Y "ip.addr==136.232.34.70" -w 136.232.34.70.pcap
+  160  ls -lh 136.232.34.70.pcap
+  161  tshark -r 136.232.34.70.pcap -q -z io,phs
+  162  tshark -r 136.232.34.70.pcap -Y "ssl.handshake.type==1" -T fields -e frame.time_relative -e ip.src -e ip.dst -e ssl.handshake.extensions_server_name -e ssl.handshake.ciphersuite -e ssl.handshake.version
+  163  tshark -r 136.232.34.70.pcap -T fields -e frame.time_epoch -e ip.src | awk '{print $1}' | awk 'NR==1{p=$1;next}{print $1-p; p=$1}'
+  164  tshark -r 136.232.34.70.pcap -Y "tls.handshake.type==1" -T fields   -e frame.time_relative -e ip.src -e ip.dst -e tls.handshake.extensions_server_name   -e tls.handshake.ciphersuite -e tls.handshake.version -E header=y -E separator=" | "
+  165  tshark -r 136.232.34.70.pcap -Y "tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  166  tshark -r cw1.pcap -Y "ip.addr==185.106.96.158 && tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  167  tshark -r cw1.pcap -Y "ip.addr==185.106.96.158" -T fields -e _ws.col.Protocol | sort | uniq -c
+  168  tshark -r cw1.pcap -Y "ip.addr==185.106.96.158 && http.request"   -T fields -e frame.time_relative -e ip.src -e ip.dst   -e http.request.method -e http.host -e http.request.uri -e http.user_agent   -E header=y -E separator=" | "
+  169  tshark -r cw1.pcap -T fields -e ip.dst | sort | uniq -c | sort -nr | head -20
+  170  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  171  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name | sort | uniq -c
+  172  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 && tls.handshake.type==1" -T fields -e frame.time_relative
+  173  tshark -r cw1.pcap -Y "ip.addr==193.70.18.144 && tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  174  tshark -r cw1.pcap -Y "ip.addr==193.70.18.144 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name | sort | uniq -c
+  175  tshark -r cw1.pcap -Y "ip.addr==193.70.18.144 && tls.handshake.type==1" -T fields -e frame.time_relative
+  176  tshark -r cw1.pcap -Y "ip.addr==23.111.114.52 || ip.addr==193.70.18.144" -T fields -e ip.src -e ip.dst -e tls.handshake.ja3 | sort | uniq -c
+  177  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  178  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name | sort | uniq -c
+  179  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e frame.time_relative
+  180  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174" -T fields -e ip.src -e ip.dst | sort | uniq -c
+  181  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e tls.handshake.ja3 | sort | uniq -c
+  182  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e tls.handshake.extensions_server_name | sort | uniq -c
+  183  tshark -r cw1.pcap -Y "ip.addr==185.125.204.174 && tls.handshake.type==1" -T fields -e frame.time_relative
+  184  shark -r ~/Downloads/cw1.pcap -Y "tls.handshake.type==1" -T fields -e frame.number -e frame.time -e ip.src -e ip.dst -e tls.handshake.extensions_server_name -e tls.handshake.version -e tls.handshake.ciphersuite -e tcp.stream -e tls.handshake.extensions_clienthello_version -e tls.record.version -e tls.handshake.extensions_supported_groups -e tls.handshake.extensions_ec_point_formats -e tls.handshake.signature_algorithms -e ssl.handshake.ja3 2>/dev/null | sed -n '1,200p'
+  185  echo 'ZmFyc2hpbkBtYWlsZmEuY29t' | base64 --decode
+  186  echo 'ZGluYW1pdA==' | base64 --decode
+  187  echo 'MTMzOTE2NzJic=' | base64 --decode ; echo
+  188  echo 'MTMzOTE2NzJic=' | base64 --decode
+  189  echo 'MTMzOTE2NzJic=' | base64 -d
+  190  echo MTMzOTE2NzJic= | tr -d '\n' | base64 -d
+  191  python3 - <<'PY'
+  192  import sys,base64
+  193  s = "MTMzOTE2NzJic="
+  194  try:
+  195      print(base64.b64decode(s.strip()).decode())
+  196  except Exception as e:
+  197      print("ERROR:", e)
+  198  PY
+  199  python3 - <<'PY'
+  200  import base64
+  201  s = "MTMzOTE2NzJic=="
+  202  print(base64.b64decode(s).decode())
+  203  PY
+  204  'MTMzOTE2NzJic=' | base64 --decode ; echo
+  205  echo 'MTMzOTE2NzJic=' | base64 --decode ; echo
+  206  echo 'MTM2OTEzNjk=' | base64 -d
+  207  echo -n "MTM2OTEzNjk=" | base64 --decode
+  208  wireshark
+  209  sudo apt update
+  210  student
+  211  [200~sudo apt update
+  212  sudo apt update
+  213  sudo apt install git
+  214  git --version
+  215  git config --global user.email "maria.stefan@students.plymouth.ac.uk"
+  216  git config --global --list
+  217  cd ~/Downloads
+  218  ls
+  219  sudo apt install ./splunk-*.deb
+  220  sudo /opt/splunk/bin/splunk start --accept-license
+  221  cd ~/Downloads
+  222  ls
+  223  sudo mv botsv3_data_set.tgz /opt/splunk/etc/apps/
+  224  cd /opt/splunk/etc/apps/
+  225  ls
+  226  sudo tar -xvf *.tgz
+  227  sudo /opt/splunk/bin/splunk restart
+  228  cd /opt/splunk/etc/apps
+  229  ls
+  230  sudo tar -xvf botsv3_data_set.tgz
+  231  sudo /opt/splunk/bin/splunk restart
+  232  cd /opt/splunk/etc/apps
+  233  ls -l
+  234  cd Desktop
+  235  cd ~/Desktop
+  236  cd ~/projects/COMP3010---70-
+  237  history > setup.txt
