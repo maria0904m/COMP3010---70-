@@ -1,0 +1,27 @@
+
+  212  sudo apt update
+  213  sudo apt install git
+  214  git --version
+  215  git config --global user.email "maria.stefan@students.plymouth.ac.uk"
+  216  git config --global --list
+  217  cd ~/Downloads
+  218  ls
+  219  sudo apt install ./splunk-*.deb
+  220  sudo /opt/splunk/bin/splunk start --accept-license
+  221  cd ~/Downloads
+  222  ls
+  223  sudo mv botsv3_data_set.tgz /opt/splunk/etc/apps/
+  224  cd /opt/splunk/etc/apps/
+  225  ls
+  226  sudo tar -xvf *.tgz
+  227  sudo /opt/splunk/bin/splunk restart
+  228  cd /opt/splunk/etc/apps
+  229  ls
+  230  sudo tar -xvf botsv3_data_set.tgz
+  231  sudo /opt/splunk/bin/splunk restart
+  232  cd /opt/splunk/etc/apps
+  233  ls -l
+  234  cd Desktop
+  235  cd ~/Desktop
+  236  cd ~/projects/COMP3010---70-
+  237  history > setup.txt
