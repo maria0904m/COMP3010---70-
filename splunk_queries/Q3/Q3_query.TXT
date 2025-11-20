@@ -1,0 +1,9 @@
+#analyzed unique sourcetypes
+
+#found hardware
+
+index=botsv3 sourcetype=hardware
+
+#query above filtered 3 events
+
+#found the cpu field and the unique value

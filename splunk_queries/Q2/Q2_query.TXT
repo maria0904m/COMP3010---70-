@@ -1,0 +1,9 @@
+index="botsv3" sourcetype="aws:cloudtrail
+
+#scrolled down and looked on the left hand side at the ALL FIELDS
+
+#identified mfa authenticated
+
+# all were false
+
+#concluded this is the field

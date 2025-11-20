@@ -1,0 +1,10 @@
+#first query used to quickly check raw username fields
+index=botsv3 sourcetype=aws:cloudtrail
+| stats count by userIdentity, userName 
+
+
+#used this to order the results alphabetically, separated by commas as requested in the question
+index=botsv3 sourcetype=aws:cloudtrail 
+| stats values(userIdentity.userName) AS iam_users #collect unique usernames
+| eval iam_users = mvsort(iam_users) #sort usersnames alphabetically
+| eval iam_users = mvjoin(iam_users, ",") #comma separation
