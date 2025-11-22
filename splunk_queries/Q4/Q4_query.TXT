@@ -1,0 +1,7 @@
+index=botsv3 sourcetype=aws:cloudtrail eventType=AwsApiCall eventName=PutBucketAcl
+| sort +_time
+
+#this has filtered 2 events, so I compared the events
+#I selected raw as view type
+#selected first event that occured by time line
+#analyzed the information which has the answers for Q4-Q6
