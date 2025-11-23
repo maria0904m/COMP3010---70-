@@ -1,0 +1,11 @@
+#I initially run the query below
+
+index=botsv3 sourcetype="aws:s3:accesslogs" "frothlywebcode"
+
+#it revealed over a 100 events, so I tried to find a different way to find the answer
+
+#reading the question again, realized it asks for a .txt file, so I filtered that
+
+index=botsv3 sourcetype="aws:s3:accesslogs" "frothlywebcode" .txt
+
+#revealed 3 events, with the answer
