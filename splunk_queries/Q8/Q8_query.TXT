@@ -1,0 +1,6 @@
+index=botsv3 sourcetype=winhostmon
+| dedup OS, host
+| table OS, host
+
+#saw bstoll 
+#chose windows 10 enetrpirse
