@@ -1,4 +1,28 @@
 # COMP3010---70-
+## 3. Installation and Data Preparation
+### 3.1. Splunk Setup\
+Splunk Enterprise was installed on the Ubuntu virtual machine using the official .deb package, found on their website. Installation was completed vid dpkg, followed by acctepting the licence agreement and creating an account. After successful installation, Splunk is started using sudo/opt/splunk/bin/splunk start. The Splunk web interface became available at the link in the terminal, in which I needed to create an account. I then open the section ‘Search and Reporting’
+
+### 3.2. BOTSv3 Dataset Ingestion\
+The BOTSv3 dataset was downloaded from the BOTSv3 GitHub repository. Sine the dataset is packaged as pre-indexed application, ingestion required only the following steps:
+- Moving the btosv3.tgz into the splunk directory
+- Extracting the archive using tar to unpack
+- Restarting Splunk so the application and its indexes can load
+
+After the restart the index botsv3 and its sourcetypes were available right away. There was no manual parsing required, no setup and no data configuration. That is reflective of the fact that most enterprise SOC actually deploy log ingestion via Splunk apps rather through manually engineered ingestion, which let the analysts focus on investigation, not engineering.
+
+### 3.3. Data Validation\
+To make sure the dataset had loaded successfully, I did a verification search: index=botsv3 earliest=0. Splunk returned over 100,000 events, confirming the index was active and populated. Next, I opened several of these results in Raw view to confirm that critical fields like host, index, sourcetype, were properly parsed. The sourcetype list in the left panel indicated the availability of major telemetry sources expected to be relevant to this investigation.
+
+From the perspective of a SOC, this validation shows the ‘preparation’ stage of incident handling, making sure the telemetry is complete, correctly indexed before any investigative work is done. A SOC analyst cannot draw any reliable conclusions if the data pipeline is incomplete or misconfigured, so confirmation of data quality is an essential step in real world investigations.
+
+### 3.4. Justification of Setup\
+Using a Splunk VM has several advantages regarding real SOC investigation practices: 
+- Full administrative control to carry out restarts, configuration changes and troubleshooting
+- Isolation from production systems, this provides a safe area for conducting analysis
+- Realistic SIEM workflow, normalised logs, and the analyst will focus on detection, investigation, interpretation only. 
+
+This setup reflects accurately how mature SOC environments work: logs come centralized, structured and ready for analysis, so the analysts can focus their resources on detection, triage and investigation.
 
 ## 4. Guided Questions
 ### 4.1. Question 1
