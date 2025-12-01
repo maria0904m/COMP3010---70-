@@ -1,4 +1,33 @@
 # COMP3010---70-
+
+## 2. SOC Roles and Incident Handling 
+A SOC operates within several layers, each balancing alerts coming in with the need for deeper investigation. Understanding what each tier does and how they support detection, escalation and response helps place the BOTSv3 analysis in a realistic SOC workflow.
+
+### Tier 1: Monitoring, alert validation and escalation
+These analysts are continuously monitoring SIEM dashboards and checking alerts. Their focus is on rapid triage, not deep investigation. They confirm whether an alert is genuine, look at the basic user and device context, identify suspicious IAM or S3 activity, and compare events to determine if anything unusual needs to be escalated.
+In the BOTSv3 scenario, Tier 1 would escalate:
+- CloudTrail API calls executed without MFA (Q2), increased credential risk
+- PutBucketAcl events indicating potential S3 misconfiguration (Q4-6)
+- Endpoint anomalies such as a Windows host running unexpected OS edition (Q8)
+This would include the Tier 1’s role in ensuring that meaningful events are detected early and accurately escalated.
+
+---
+
+### Tier 2: Investigation, multi source correlation and response
+These analysts do deep investigations, whose work include correlation across identity logs, S3 access data, configuration changes and endpoint telemetry to find the root cause, impact and scope.
+In the BOTSv3 scenario Tier 2 responsibilities are:
+- Enumerating IAM user activity to build identity baselines (Q1)
+- Determine MFA enforcement gaps
+- Tracing the lifecycle of an S3 public exposure incident
+Tier 2 would also implement containment measures, revoke IAM keys, lock compromised roles, remove public S3 ACLs, or isolate non-compliant endpoints
+
+---
+
+### Tier 3: Threat hunting, SIEM engineering and strategic improvement
+Tier 3 focuses on proactive defense and long term optimization. It tunes detection, builds automation and strengthens the cloud security posture. In the process, their work is informed by intelligence obtained from Tier 2 investigations. Tier 3 transforms incident knowledge into durable and enterprise wide security countermeasures.
+
+---
+
 ## 3. Installation and Data Preparation
 ### 3.1. Splunk Setup
 Splunk Enterprise was installed on the Ubuntu virtual machine using the official .deb package, found on their website. Installation was completed vid dpkg, followed by acctepting the licence agreement and creating an account. After successful installation, Splunk is started using sudo/opt/splunk/bin/splunk start. The Splunk web interface became available at the link in the terminal, in which I needed to create an account. I then open the section ‘Search and Reporting’
