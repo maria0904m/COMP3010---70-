@@ -34,6 +34,21 @@ Splunk Enterprise was installed on the Ubuntu virtual machine using the official
 
 ---
 
+### NIST SP 800-61 Alignment
+The BOTSv3 workflow aligns with the NIST incident handling model:
+
+**Preparation:** installing Splunk, loading BOTSv3 and validating sourcetypes
+
+**Detection and analysis:** IAM enumeration, MFA validation, misconfiguration investigation, endpoint deviation detection
+
+**Containment and recovery:** Removing public ACLs, enforcing MFA, correcting OS inconsistencies
+
+**Post incident activity:** better correlation searches, stronger governance, revised baselines
+
+This investigation has shown how SOC analysts need to pivot across AWS identity logs, configuration changes, S3 access patterns, and endpoint telemetry to build a coherent incident narrative. It underlines the importance of SPL proficiency, cloud misconfiguration awareness, and understanding attacker behaviour, core competencies required in a professional cloud-centric SOC operating at an outstanding level.
+
+---
+
 ### 3.2. BOTSv3 Dataset Ingestion
 The BOTSv3 dataset was downloaded from the BOTSv3 GitHub repository. Sine the dataset is packaged as pre-indexed application, ingestion required only the following steps:
 - Moving the btosv3.tgz into the splunk directory
