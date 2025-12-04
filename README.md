@@ -1,4 +1,21 @@
 # COMP3010---70-
+## 1.Introduction
+Security Operations Centres (SOCs) are responsible for continuously monitoring, detecting, and responding to threats across an organisation’s infrastructure. In practice, SOC analysts must work with high volume, heterogeneous telemetry (network flows, endpoint logs, cloud audit trails) and turn this raw data into actionable incident investigations. 
+
+Splunk serves as a common SIEM platform in such an environment. It enables various log sources to be searched and correlated with the use of its Search Processing Language (SPL).
+
+This research will utilize the BOTSv3 dataset, provided by Splunk, which simulates various attacks against Frothly, a fictional brewing company. The BOTSv3 provides pre-indexed logs from AWS, Windows endpoints, S3 access logs, and various other supporting technologies that enable realistic SOC workflows without the overhead required to build a live lab.
+
+**The objectives for this coursework are to:**
+Deploy Splunk Enterprise in an Ubuntu virtual machine and ingest the BOTSv3 dataset.
+Validate the availability of AWS and endpoint logs related to the investigation.
+Reflect on how these investigative steps map onto SOC roles, incident handling methodologies, and the wider cyber kill chain.
+Explain how each investigation in SPL represents a real world process for SOC: detect, escalate, and analyze.
+
+**Scope and assumptions:**
+This exercise will focus only on the botsv3 index, using only the historical logs included in the dataset. No live data ingestion, forwarding, or external integrations were configured. All activities are performed from the perspective of a Tier 1 and 2 SOC analyst responding to alerts relating to AWS and endpoint behaviour. All assets, usernames, and data are fictional and used purely for academic training.
+
+This report documents the full investigative workflow, from setup through guided questions, and links findings back to real-world SOC practices.
 
 ## 2. SOC Roles and Incident Handling 
 A SOC operates within several layers, each balancing alerts coming in with the need for deeper investigation. Understanding what each tier does and how they support detection, escalation and response helps place the BOTSv3 analysis in a realistic SOC workflow.
