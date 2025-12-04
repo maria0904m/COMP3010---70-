@@ -17,6 +17,8 @@ This exercise will focus only on the botsv3 index, using only the historical log
 
 This report documents the full investigative workflow, from setup through guided questions, and links findings back to real-world SOC practices.
 
+---
+
 ## 2. SOC Roles and Incident Handling 
 A SOC operates within several layers, each balancing alerts coming in with the need for deeper investigation. Understanding what each tier does and how they support detection, escalation and response helps place the BOTSv3 analysis in a realistic SOC workflow.
 
@@ -192,3 +194,25 @@ Monitoring of endpoint baseline is important because:
 - Maintaining consistent hardening positions
 Identification of the single host running on a different OS indicates how small variances can point to larger security problems.
 
+---
+
+## 5. Conclusion
+These exercises have ensured comprehensive SOC level analysis in Splunk using the BOTSv3 dataset regarding AWS identity behaviour, cloud misconfiguration, S3 access patterns and endpoint telemetry. Preparing and installing, ingestion of the database and tools is a foundation step to carry out incident analysis accurately and reliably, thereby, simulating a preparation phase in SOC operations.
+
+**Key lessons learned:**\
+- CloudTrail is main forensic source in understanding identity centred security problems
+- MFA enforcement for API calls is critical to mitigate credential attacks
+- S3 bucket misconfigurations are a leading category of cloud security failures
+- Cross dataset correlation is important for determining attack scope and impact.
+- Baseline deviations in endpoint OS can indicate early misconfigurations or usage of unauthorized systems.
+
+**Forward looking recommandations:**\
+- Implement automated detection using Splunk for events that grant public access
+- MFA to be enforced for all IAM users and API call level
+- Apply AWS block public access settings
+- Standardise endpoint OS build and enable deviation alerts
+- Integrate regular IAM privilege audits
+
+This investigation demonstrates how SOC analysts transform raw telemetry into actionable security intelligence, blending technical evidence with operational context. Structured analysis supported by evidence and SOC aligned reflection develop both technical and operational competencies required in real world incident handling
+
+---
