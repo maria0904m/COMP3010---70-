@@ -7,12 +7,12 @@ Splunk serves as a common SIEM platform in such an environment. It enables vario
 This research will utilize the BOTSv3 dataset, provided by Splunk, which simulates various attacks against Frothly, a fictional brewing company. The BOTSv3 provides pre-indexed logs from AWS, Windows endpoints, S3 access logs, and various other supporting technologies that enable realistic SOC workflows without the overhead required to build a live lab.
 
 **The objectives for this coursework are to:**
-Deploy Splunk Enterprise in an Ubuntu virtual machine and ingest the BOTSv3 dataset.
-Validate the availability of AWS and endpoint logs related to the investigation.
-Reflect on how these investigative steps map onto SOC roles, incident handling methodologies, and the wider cyber kill chain.
-Explain how each investigation in SPL represents a real world process for SOC: detect, escalate, and analyze.
+- Deploy Splunk Enterprise in an Ubuntu virtual machine and ingest the BOTSv3 dataset.
+- Validate the availability of AWS and endpoint logs related to the investigation.
+- Reflect on how these investigative steps map onto SOC roles, incident handling methodologies, and the wider cyber kill chain.
+- Explain how each investigation in SPL represents a real world process for SOC: detect, escalate, and analyze.
 
-**Scope and assumptions:**
+**Scope and assumptions:**\
 This exercise will focus only on the botsv3 index, using only the historical logs included in the dataset. No live data ingestion, forwarding, or external integrations were configured. All activities are performed from the perspective of a Tier 1 and 2 SOC analyst responding to alerts relating to AWS and endpoint behaviour. All assets, usernames, and data are fictional and used purely for academic training.
 
 This report documents the full investigative workflow, from setup through guided questions, and links findings back to real-world SOC practices.
