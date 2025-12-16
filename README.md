@@ -187,14 +187,14 @@ Operating systems inconsistencies may indicate build drift, unmanaged devices or
 ## 5. Conclusion
 These exercises have ensured comprehensive SOC level analysis in Splunk using the BOTSv3 dataset regarding AWS identity behaviour, cloud misconfiguration, S3 access patterns and endpoint telemetry. 
 
-**Key lessons learned:**\
+**Key lessons learned:**
 - CloudTrail is main forensic source in understanding identity centred security problems
 - MFA enforcement for API calls is critical to mitigate credential attacks
 - S3 bucket misconfigurations are a leading category of cloud security failures
 - Cross dataset correlation is important for determining attack scope and impact.
 - Baseline deviations in endpoint OS can indicate early misconfigurations or usage of unauthorized systems.
 
-**Forward looking recommandations:**\
+**Forward looking recommandations:**
 - Implement automated detection using Splunk for events that grant public access
 - MFA to be enforced for all IAM users and API call level
 - Apply AWS block public access settings
