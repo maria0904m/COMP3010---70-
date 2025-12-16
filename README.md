@@ -261,3 +261,37 @@ Monitoring of endpoint baseline is important because:
 - Vulnerability management prioritization
 - Maintaining consistent hardening positions
 Identification of the single host running on a different OS indicates how small variances can point to larger security problems.
+
+---
+
+## Reference list
+- Airbyte, 2025. Data Ingestion Best Practices for SOCs (online). Available at: https://airbyte.com/data-engineering-resources/data-ingestion (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. AWS CloudTrail Log File Examples (online). Available at: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-examples.html (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. AWS Identity and Access Management (IAM) Best Practices (online). Available at: https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. AWS Multi-Factor Authentication Best Practices (online). Available at: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. AWS S3 Access Logging and Monitoring (online). Available at: https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html (Last accessed: 4 December 2025).
+-  Amazon Web Services, 2025. AWS Security Best Practices (online). Available at: https://aws.amazon.com/whitepapers/aws-security-best-practices/ (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. How do I prevent my Amazon S3 bucket from being publicly accessible? (online). Available at: https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-public-access/ (Last accessed: 4 December 2025).
+- Amazon Web Services, 2025. Monitoring CloudTrail with Amazon CloudWatch Logs (online). Available at: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail-additional-examples.html (Last accessed: 4 December 2025).
+- CrowdStrike, 2025. Cloud Misconfigurations and Data Exposure (online). Available at: https://www.crowdstrike.com/blog/cloud-security-101-misconfigurations/ (Last accessed: 4 December 2025).
+- CrowdStrike, 2025. Next-Gen SIEM & Security Operations Center (SOC) (online). Available at: https://www.crowdstrike.com/en-us/cybersecurity-101/next-gen-siem/security-operations-center-soc/ (Last accessed: 4 December 2025).
+- Cybersecurity News, 2025. AWS IAM Vulnerabilities and Best Practices (online). Available at: https://cybersecuritynews.com/aws-iam-vulnerabilities/ (Last accessed: 4 December 2025).
+- Deloitte, 2025. NIS2 directive (online). Available at: https://www.deloitte.com/ro/en/services/risk-advisory/services/nis2-directive.html (Last accessed: 4 December 2025).
+- ENISA, 2022. ENISA threat landscape 2022. European Union Agency for Cybersecurity (online). Available at: https://www.enisa.europa.eu/publications/enisa-threat-landscape-2022  (Last accessed: 4 December 2025).
+- ENISA, 2023. Cloud security guide for SMEs. European Union Agency for Cybersecurity (online). Available at: https://www.enisa.europa.eu/publications/cloud-security-guide-for-smes  (Last accessed: 4 December 2025).
+- Gartner, 2023. Cloud security guide (online). Available at: https://www.gartner.com/en/cybersecurity/topics/cloud-security  (Last accessed: 4 December 2025). 
+- Gartner, 2023. SOC tier roles and responsibilities (online). Available at: https://www.gartner.com/en/documents/4851731  (Last accessed: 4 December 2025).
+- IBM, 2025. Data Integrity Strategy: Ensuring Accurate, Complete, and Consistent Data (online). Available at: https://www.ibm.com/think/insights/data-integrity-strategy (Last accessed: 4 December 2025).
+- IBM X-Force, 2024. 2024 X-Force threat intelligence index (online). Available at: https://www.ibm.com/think/x-force/2024-x-force-threat-intelligence-index  (Last accessed: 4 December 2025).
+- Infosys, 2025. Cloud cyber resiliency (online). Available at: https://www.infosys.com/services/cyber-security/documents/cloud-cyber-resiliency.pdf?utm_source=infosys_hub&utm_medium=main  (Last accessed: 4 December 2025).
+- Microsoft Security, 2019. One Simple Action You Can Take to Prevent 99.9% of Account Attacks (online). Available at: https://www.microsoft.com/en-us/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/ (Last accessed: 4 December 2025).
+- Microsoft Security, 2024. Understanding Cloud Identity Security (online). Available at: https://www.microsoft.com/security/blog/cloud-identity/ (Last accessed: 4 December 2025).
+- MITRE, 2020. ATT&CK Design and Philosophy (online). Available at: https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf (Last accessed: 4 December 2025).
+- NICCS CISA, 2025. Endpoint security fundamentals (online). Available at: https://niccs.cisa.gov/training/catalog/cybrary/endpoint-security-fundamentals  (Last accessed: 4 December 2025).
+- NIST, 2012. Computer Security Incident Handling Guide, Special Publication 800-61r3 (online). Available at: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf (Last accessed: 4 December 2025).
+- Palo Alto Networks, 2025. SOC Roles and Responsibilities (online). Available at: https://www.paloaltonetworks.com/cyberpedia/soc-roles-and-responsibilities (Last accessed: 4 December 2025).
+- Palo Alto Networks Unit 42, 2024. Cloud threat report (online). Available at: https://www.paloaltonetworks.com/prisma/cloud/unit42-cloud-threat-report (Last accessed: 4 December 2025).
+- SANS Institute, 2024. SOC Tiering and Analyst Roles (online). Available at: https://www.sans.org/white-papers/402/ (Last accessed: 4 December 2025).
+- Splunk Docs, 2025. Search Processing Language (SPL) (online). Available at: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax (Last accessed: 4 December 2025).
+- Sysdig, 2025. The Role of the Security Operations Center (SOC) in Cloud Security (online). Available at: https://www.sysdig.com/learn-cloud-native/the-role-of-the-security-operations-center-soc-in-cloud-security (Last accessed: 4 December 2025).
+- Verizon, 2024. 2024 Data Breach Investigations Report (online). Available at: https://www.verizon.com/business/resources/reports/2024-dbir-data-breach-investigations-report.pdf (Last accessed: 4 December 2025).
