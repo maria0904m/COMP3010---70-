@@ -1,8 +1,8 @@
 # COMP3010---70-
 ## 1.Introduction
-Security Operations Centres (SOCs) are responsible for continuously monitoring, detecting, and responding to threats across an organisation’s infrastructure. In practice, SOC analysts must work with high volume, heterogeneous telemetry (network flows, endpoint logs, cloud audit trails) and turn this raw data into actionable incident investigations. 
+Security Operations Centres (SOCs) are responsible for continuously monitoring, detecting, and responding to threats across an organisation’s infrastructure. “SOCs are tasked with monitoring and detecting threats across an organization's technology ecosystem“(Sysdig, 2024). This reflects that, SOC analysts must work with high volume, heterogeneous telemetry (network flows, endpoint logs, cloud audit trails) and turn this raw data into actionable incident investigations. 
 
-Splunk serves as a common SIEM platform in such an environment. It enables various log sources to be searched and correlated with the use of its Search Processing Language (SPL).
+Splunk serves as a common SIEM platform in such an environment. It enables various log sources to be searched and correlated with the use of its Search Processing Language (SPL). “A SIEM collects and organizes all the data coming from various sources within your network infrastructure … to find unusual behavior and malicious activity and stop it automatically” (Splunk, 2024).
 
 This research will utilize the BOTSv3 dataset, provided by Splunk, which simulates various attacks against Frothly, a fictional brewing company. The BOTSv3 provides pre-indexed logs from AWS, Windows endpoints, S3 access logs, and various other supporting technologies that enable realistic SOC workflows without the overhead required to build a live lab.
 
@@ -13,14 +13,19 @@ This research will utilize the BOTSv3 dataset, provided by Splunk, which simulat
 - Explain how each investigation in SPL represents a real world process for SOC: detect, escalate, and analyze.
 
 **Scope and assumptions:**\
-This exercise will focus only on the botsv3 index, using only the historical logs included in the dataset. No live data ingestion, forwarding, or external integrations were configured. All activities are performed from the perspective of a Tier 1 and 2 SOC analyst responding to alerts relating to AWS and endpoint behaviour. All assets, usernames, and data are fictional and used purely for academic training.
+This exercise will focus only on the botsv3 index, using only the historical logs included in the dataset. No live data ingestion, forwarding, or external integrations were configured. All activities are performed from the perspective of a Tier 1 and 2 SOC analyst responding to alerts relating to AWS and endpoint behaviour. While BOTSv3 is an extremely realistic environment it remains a controlled dataset. Thus, findings should be interpreted with the understanding that the attacks are of predefined patterns, without the noise found in a real world setting, and do not represent evolving attacker behavior as in live environments.
 
 This report documents the full investigative workflow, from setup through guided questions, and links findings back to real-world SOC practices.
 
 ---
 
 ## 2. SOC Roles and Incident Handling 
-A SOC operates within several layers, each balancing alerts coming in with the need for deeper investigation. Understanding what each tier does and how they support detection, escalation and response helps place the BOTSv3 analysis in a realistic SOC workflow.
+A SOC operates within several layers, each balancing alerts coming in with the need for deeper investigation. As stated by SANS Institute (2024), “tiering allows analysts to focus on the right level of analysis, reducing burnout while improving event accuracy.” (SANS Institute, 2024). Understanding what each tier does and how they support detection, escalation and response helps place the BOTSv3 analysis in a realistic SOC workflow.
+
+However, tiering introduces operational challenges:
+- Alert fatigue: Tier 1 analysts may ignore low-fidelity alerts, potentially missing early stages of sophisticated attacks
+- Escalation gaps: If Tier 1 fails to escalate, incidents may go unresolved, delaying containment and increasing risk exposure.
+- Coverage limitations: Resource constraints mean not all telemetry can be actively monitored, necessitating risk-based prioritization.
 
 ### Tier 1: Monitoring, alert validation and escalation
 These analysts are continuously monitoring SIEM dashboards and checking alerts. Their focus is on rapid triage, not deep investigation. They confirm whether an alert is genuine, look at the basic user and device context, identify suspicious IAM or S3 activity, and compare events to determine if anything unusual needs to be escalated.
@@ -28,28 +33,44 @@ In the BOTSv3 scenario, Tier 1 would escalate:
 - CloudTrail API calls executed without MFA (Q2), increased credential risk
 - PutBucketAcl events indicating potential S3 misconfiguration (Q4-6)
 - Endpoint anomalies such as a Windows host running unexpected OS edition (Q8)
-This would include the Tier 1’s role in ensuring that meaningful events are detected early and accurately escalated.
+This would include the Tier 1’s role in ensuring that meaningful events are detected early and accurately escalated. If escalation fails, SOC maturity suffers, as Tier 2 cannot perform timely root cause analysis.
 
 ---
 
 ### Tier 2: Investigation, multi source correlation and response
-These analysts do deep investigations, whose work include correlation across identity logs, S3 access data, configuration changes and endpoint telemetry to find the root cause, impact and scope.
+These analysts do deep investigations, whose work include correlation across identity logs, S3 access data, configuration changes and endpoint telemetry to find the root cause, impact and scope. “Analysts review the higher-priority security incidents escalated by triage specialists and do a more in-depth assessment using threat intelligence.”(Palo Alto Networks, 2024) 
+
 In the BOTSv3 scenario Tier 2 responsibilities are:
 - Enumerating IAM user activity to build identity baselines (Q1)
 - Determine MFA enforcement gaps
 - Tracing the lifecycle of an S3 public exposure incident
+
 Tier 2 would also implement containment measures, revoke IAM keys, lock compromised roles, remove public S3 ACLs, or isolate non-compliant endpoints
 
 ---
 
 ### Tier 3: Threat hunting, SIEM engineering and strategic improvement
-Tier 3 focuses on proactive defense and long term optimization. It tunes detection, builds automation and strengthens the cloud security posture. In the process, their work is informed by intelligence obtained from Tier 2 investigations. Tier 3 transforms incident knowledge into durable and enterprise wide security countermeasures.
+Tier 3 focuses on proactive defense and long term optimization. It tunes detection, builds automation and strengthens the cloud security posture. Tier 3 transforms incident knowledge into durable and enterprise wide security countermeasures.
+
+“Proactively searches for suspicious behavior and tests and assesses network security to detect advanced threats and identify areas of vulnerability or insufficiently protected assets.” (CrowdStrike, 2024)
 
 ---
+
+### NIST SP 800-61 Alignment
+The BOTSv3 workflow aligns with the NIST incident handling model:
+
+- Preparation: installing Splunk, loading BOTSv3 and validating sourcetypes
+- Detection and analysis: IAM enumeration, MFA validation, misconfiguration investigation, endpoint deviation detection
+- Containment and recovery: Removing public ACLs, enforcing MFA, correcting OS inconsistencies
+- Post incident activity: better correlation searches, stronger governance, revised baselines
+
+This investigation has shown how SOC analysts need to pivot across AWS identity logs, configuration changes, S3 access patterns, and endpoint telemetry to build a coherent incident narrative. It underlines the importance of SPL proficiency, cloud misconfiguration awareness, and understanding attacker behaviour, core competencies required in a professional cloud-centric SOC operating at an outstanding level.
+
 
 ## 3. Installation and Data Preparation
 ### 3.1. Splunk Setup
 Splunk Enterprise was installed on the Ubuntu virtual machine using the official .deb package, found on their website. Installation was completed vid dpkg, followed by acctepting the licence agreement and creating an account. After successful installation, Splunk is started using sudo/opt/splunk/bin/splunk start. The Splunk web interface became available at the link in the terminal, in which I needed to create an account. I then open the section ‘Search and Reporting’
+<img width="672" height="380" alt="image" src="https://github.com/user-attachments/assets/7a24e976-837c-4f5c-8b65-5242a7c69f01" />
 
 ---
 
