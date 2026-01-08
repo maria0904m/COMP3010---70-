@@ -1,4 +1,5 @@
 # COMP3010---70-
+### Video link: https://youtu.be/x60cpFFPyDE 
 ## 1.Introduction
 Security Operations Centres (SOCs) are responsible for continuously monitoring, detecting, and responding to threats across an organisation’s infrastructure. “SOCs are tasked with monitoring and detecting threats across an organization's technology ecosystem“(Sysdig, 2024). This reflects that, SOC analysts must work with high volume, heterogeneous telemetry (network flows, endpoint logs, cloud audit trails) and turn this raw data into actionable incident investigations. 
 
